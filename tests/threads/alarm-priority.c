@@ -22,6 +22,7 @@ test_alarm_priority (void)
   ASSERT (!thread_mlfqs);
 
   wake_time = timer_ticks () + 5 * TIMER_FREQ;
+  printf("wake time: %d \n", wake_time);
   sema_init (&wait_sema, 0);
   
   for (i = 0; i < 10; i++) 
@@ -31,8 +32,8 @@ test_alarm_priority (void)
       snprintf (name, sizeof name, "priority %d", priority);
       thread_create (name, priority, alarm_priority_thread, NULL);
     }
-
   thread_set_priority (PRI_MIN);
+  printf("-------------- \n");
 
   for (i = 0; i < 10; i++)
     sema_down (&wait_sema);
@@ -42,7 +43,7 @@ static void
 alarm_priority_thread (void *aux UNUSED) 
 {
   /* Busy-wait until the current time changes. */
-  int64_t start_time = timer_ticks ();
+  int64_t start_time = timer_ticks (); /*timer ticks() returns the number of ticks since OS booted*/
   while (timer_elapsed (start_time) == 0)
     continue;
 

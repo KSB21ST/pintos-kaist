@@ -15,6 +15,7 @@
 #include "userprog/process.h"
 #endif
 
+
 /* Random value for struct thread's `magic' member.
    Used to detect stack overflow.  See the big comment at the top
    of thread.h for details. */
@@ -62,6 +63,11 @@ static void init_thread (struct thread *, const char *name, int priority);
 static void do_schedule(int status);
 static void schedule (void);
 static tid_t allocate_tid (void);
+
+//Implemented functions
+// static bool compare_priority(struct list_elem *a, struct list_elem *b, void *aux);
+static char * thread_status_show(struct thread *t);
+static bool compare_priority(struct list_elem * a, struct list_elem * b, void *aux);
 
 /* Returns true if T appears to point to a valid thread. */
 #define is_thread(t) ((t) != NULL && (t)->magic == THREAD_MAGIC)
@@ -292,6 +298,18 @@ thread_exit (void) {
 	NOT_REACHED ();
 }
 
+static bool compare_priority(struct list_elem * a, struct list_elem * b, void *aux){
+	struct thread *temp1 = list_entry(a, struct thread, elem);
+	struct thread *temp2 = list_entry(b, struct thread, elem);
+	printf("comparing %s and %s ", temp1->name, temp2->name);
+	if((temp1->priority) > (temp2->priority)){
+		printf("true \n");
+		return true;
+	}else{
+		printf("false \n");
+		return false;}
+}
+
 /* Yields the CPU.  The current thread is not put to sleep and
    may be scheduled again immediately at the scheduler's whim. */
 void
@@ -312,6 +330,7 @@ thread_yield (void) {
 void
 thread_set_priority (int new_priority) {
 	thread_current ()->priority = new_priority;
+	thread_yield();
 }
 
 /* Returns the current thread's priority. */
@@ -383,7 +402,6 @@ idle (void *idle_started_ UNUSED) {
 		asm volatile ("sti; hlt" : : : "memory");
 	}
 }
-
 /* Function used as the basis for a kernel thread. */
 static void
 kernel_thread (thread_func *function, void *aux) {
@@ -416,12 +434,17 @@ init_thread (struct thread *t, const char *name, int priority) {
    empty.  (If the running thread can continue running, then it
    will be in the run queue.)  If the run queue is empty, return
    idle_thread. */
+
+
 static struct thread *
 next_thread_to_run (void) {
-	if (list_empty (&ready_list))
+	if (list_empty (&ready_list)){
 		return idle_thread;
-	else
+	}
+	else{
+		// list_sort((&ready_list), compare_priority, NULL);
 		return list_entry (list_pop_front (&ready_list), struct thread, elem);
+	}
 }
 
 /* Use iretq to launch the thread */
@@ -535,6 +558,7 @@ do_schedule(int status) {
 		palloc_free_page(victim);
 	}
 	thread_current ()->status = status;
+	printf("hello");
 	schedule ();
 }
 
@@ -542,7 +566,6 @@ static void
 schedule (void) {
 	struct thread *curr = running_thread ();
 	struct thread *next = next_thread_to_run ();
-
 	ASSERT (intr_get_level () == INTR_OFF);
 	ASSERT (curr->status != THREAD_RUNNING);
 	ASSERT (is_thread (next));
@@ -587,4 +610,18 @@ allocate_tid (void) {
 	lock_release (&tid_lock);
 
 	return tid;
+}
+
+static char *thread_status_show(struct thread *t){
+	char *s;
+	if(t->status == THREAD_READY){
+		s = "thread_ready";
+	}else if(t->status == THREAD_BLOCKED){
+		s = "thread_blocked";
+	}else if(t->status == THREAD_RUNNING){
+		s = "thread_running";
+	}else{
+		s = "thread_dying";
+	}
+	printf("thread_status: %s\n", s);
 }

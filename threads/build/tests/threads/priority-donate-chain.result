@@ -43,7 +43,7 @@ Acceptable output:
   (priority-donate-chain) end
 Differences in `diff -u' format:
   (priority-donate-chain) begin
-  (priority-donate-chain) main got lock.
+- (priority-donate-chain) main got lock.
 - (priority-donate-chain) main should have priority 3.  Actual priority: 3.
 - (priority-donate-chain) main should have priority 6.  Actual priority: 6.
 - (priority-donate-chain) main should have priority 9.  Actual priority: 9.
@@ -79,6 +79,7 @@ Differences in `diff -u' format:
 - (priority-donate-chain) interloper 2 finished.
 - (priority-donate-chain) thread 1 finishing with priority 3.
 - (priority-donate-chain) interloper 1 finished.
++ here(priority-donate-chain) main got lock.
 + (priority-donate-chain) main should have priority 3.  Actual priority: 0.
 + (priority-donate-chain) main should have priority 6.  Actual priority: 0.
 + (priority-donate-chain) main should have priority 9.  Actual priority: 0.

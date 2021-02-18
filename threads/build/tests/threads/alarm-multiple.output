@@ -1,0 +1,23 @@
+Kernel command line: -q run alarm-multiple
+0 ~ 9fc00 1
+100000 ~ 13e0000 1
+Pintos booting with: 
+	base_mem: 0x0 ~ 0x9fc00 (Usable: 639 kB)
+	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
+Calibrating timer...  157,081,600 loops/s.
+Boot complete.
+Executing 'alarm-multiple':
+(alarm-multiple) begin
+(alarm-multiple) Creating 5 threads to sleep 7 times each.
+(alarm-multiple) Thread 0 sleeps 10 ticks each time,
+(alarm-multiple) thread 1 sleeps 20 ticks each time, and so on.
+(alarm-multiple) If successful, product of iteration count and
+(alarm-multiple) sleep duration will appear in nondescending order.
+Kernel PANIC at ../../threads/thread.c:271 in thread_current(): assertion `t->status == THREAD_RUNNING' failed.
+Call stack: 0x8004213110 0x8004206ebe 0x8004209e3a 0x800421619e 0x80042162bc 0x8004210613 0x8004207330 0x8004213e96 0x8004214231 0x800420739a 0x8004207677 0x800420764b 0x800420703e 0x800420ceec 0x8004216a99 0x800421677b 0x800421654c 0x8004206636 0x8004206783 0x8004206120.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 23 ticks
+Thread: 0 idle ticks, 23 kernel ticks, 0 user ticks
+Console: 1

@@ -338,6 +338,8 @@ is_sorted (struct list_elem *a, struct list_elem *b,
 static struct list_elem *
 find_end_of_run (struct list_elem *a, struct list_elem *b,
 		list_less_func *less, void *aux) {
+	if(a == NULL){printf("a is null \n");}
+	if(b == NULL){printf("b is null \n");}
 	ASSERT (a != NULL);
 	ASSERT (b != NULL);
 	ASSERT (less != NULL);

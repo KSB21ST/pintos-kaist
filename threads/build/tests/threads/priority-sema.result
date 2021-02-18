@@ -27,6 +27,7 @@ Acceptable output:
 Differences in `diff -u' format:
   (priority-sema) begin
 - (priority-sema) Thread priority 30 woke up.
++ here(priority-sema) Back in main thread.
   (priority-sema) Back in main thread.
 - (priority-sema) Thread priority 29 woke up.
   (priority-sema) Back in main thread.
@@ -43,7 +44,7 @@ Differences in `diff -u' format:
 - (priority-sema) Thread priority 23 woke up.
   (priority-sema) Back in main thread.
 - (priority-sema) Thread priority 22 woke up.
-  (priority-sema) Back in main thread.
+- (priority-sema) Back in main thread.
 - (priority-sema) Thread priority 21 woke up.
   (priority-sema) Back in main thread.
   (priority-sema) end

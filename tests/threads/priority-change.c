@@ -15,17 +15,17 @@ test_priority_change (void)
   /* This test does not work with the MLFQS. */
   ASSERT (!thread_mlfqs);
 
-  msg ("Creating a high-priority thread 2.");
+  msg ("Creating a high-priority thread 2."); //1
   thread_create ("thread 2", PRI_DEFAULT + 1, changing_thread, NULL);
-  msg ("Thread 2 should have just lowered its priority.");
+  msg ("Thread 2 should have just lowered its priority.");//3
   thread_set_priority (PRI_DEFAULT - 2);
-  msg ("Thread 2 should have just exited.");
+  msg ("Thread 2 should have just exited.");//5
 }
 
 static void
 changing_thread (void *aux UNUSED) 
 {
-  msg ("Thread 2 now lowering priority.");
+  msg ("Thread 2 now lowering priority.");//2
   thread_set_priority (PRI_DEFAULT - 1);
-  msg ("Thread 2 exiting.");
+  msg ("Thread 2 exiting.");//4
 }

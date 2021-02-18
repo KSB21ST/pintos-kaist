@@ -8,7 +8,7 @@ Calibrating timer...  157,081,600 loops/s.
 Boot complete.
 Executing 'priority-donate-chain':
 (priority-donate-chain) begin
-here(priority-donate-chain) main got lock.
+(priority-donate-chain) main got lock.
 (priority-donate-chain) main should have priority 3.  Actual priority: 0.
 (priority-donate-chain) main should have priority 6.  Actual priority: 0.
 (priority-donate-chain) main should have priority 9.  Actual priority: 0.
@@ -21,6 +21,6 @@ here(priority-donate-chain) main got lock.
 Execution of 'priority-donate-chain' complete.
 Timer: 25 ticks
 Thread: 0 idle ticks, 25 kernel ticks, 0 user ticks
-Console: 1083 characters output
+Console: 1079 characters output
 Keyboard: 0 keys pressed
 Powering off...

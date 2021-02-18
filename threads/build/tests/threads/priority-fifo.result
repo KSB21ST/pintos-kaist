@@ -1,2 +1,2 @@
 FAIL
-Iteration 1 differs from iteration 0
+Run didn't shut down properly: no "Powering off" message

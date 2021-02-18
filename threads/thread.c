@@ -65,7 +65,6 @@ static void schedule (void);
 static tid_t allocate_tid (void);
 
 //Implemented functions
-// static bool compare_priority(struct list_elem *a, struct list_elem *b, void *aux);
 static char * thread_status_show(struct thread *t);
 static bool compare_priority(struct list_elem * a, struct list_elem * b, void *aux);
 
@@ -301,12 +300,12 @@ thread_exit (void) {
 static bool compare_priority(struct list_elem * a, struct list_elem * b, void *aux){
 	struct thread *temp1 = list_entry(a, struct thread, elem);
 	struct thread *temp2 = list_entry(b, struct thread, elem);
-	printf("comparing %s and %s ", temp1->name, temp2->name);
+	// printf("comparing %s and %s ", temp1->name, temp2->name);
 	if((temp1->priority) > (temp2->priority)){
-		printf("true \n");
+		// printf("true \n");
 		return true;
 	}else{
-		printf("false \n");
+		// printf("false \n");
 		return false;}
 }
 
@@ -330,7 +329,6 @@ thread_yield (void) {
 void
 thread_set_priority (int new_priority) {
 	thread_current ()->priority = new_priority;
-	thread_yield();
 }
 
 /* Returns the current thread's priority. */
@@ -442,7 +440,7 @@ next_thread_to_run (void) {
 		return idle_thread;
 	}
 	else{
-		// list_sort((&ready_list), compare_priority, NULL);
+		list_sort((&ready_list), &compare_priority, NULL);
 		return list_entry (list_pop_front (&ready_list), struct thread, elem);
 	}
 }
@@ -558,7 +556,6 @@ do_schedule(int status) {
 		palloc_free_page(victim);
 	}
 	thread_current ()->status = status;
-	printf("hello");
 	schedule ();
 }
 

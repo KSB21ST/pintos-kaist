@@ -1,14 +1,7 @@
 FAIL
-Some tick counts were missing or differed from those expected by more than 25.
-thread   actual <-> expected explanation
------- -------- --- -------- ----------------------------------------
-     0      301 <<< 672      Too small, by 346.
-     1      300 <<< 588      Too small, by 263.
-     2      300 <<< 492      Too small, by 167.
-     3      301 <<< 408      Too small, by 82.
-     4      301  =  316      
-     5      301 >>> 232      Too big, by 44.
-     6      300 >>> 152      Too big, by 123.
-     7      300 >>> 92       Too big, by 183.
-     8      301 >>> 40       Too big, by 236.
-     9      300 >>> 8        Too big, by 267.
+Kernel panic in run: PANIC at ../../threads/init.c:232 in parse_options(): unknown option `-q' (use -h for help)
+Call stack: 0x8004213199 0x800420659a 0x8004206058
+Translation of call stack:
+0x0000008004213199: debug_panic (lib/kernel/debug.c:32)
+0x000000800420659a: parse_options (threads/init.c:208)
+0x0000008004206058: main (threads/init.c:78)

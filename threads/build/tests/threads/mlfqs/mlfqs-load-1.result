@@ -1,7 +1,11 @@
 FAIL
-Kernel panic in run: PANIC at ../../threads/init.c:232 in parse_options(): unknown option `-q' (use -h for help)
-Call stack: 0x8004213199 0x800420659a 0x8004206058
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:93 in fail(): test failed
+Call stack: 0x800421320d 0x8004216849 0x80042198b1 0x8004216683 0x8004206643 0x8004206790 0x8004206120
 Translation of call stack:
-0x0000008004213199: debug_panic (lib/kernel/debug.c:32)
-0x000000800420659a: parse_options (threads/init.c:208)
-0x0000008004206058: main (threads/init.c:78)
+0x000000800421320d: debug_panic (lib/kernel/debug.c:32)
+0x0000008004216849: pass (tests/threads/tests.c:99)
+0x00000080042198b1: test_mlfqs_load_1 (tests/threads/mlfqs/mlfqs-load-1.c:31)
+0x0000008004216683: run_test (tests/threads/tests.c:57)
+0x0000008004206643: run_task (threads/init.c:254)
+0x0000008004206790: run_actions (threads/init.c:299)
+0x0000008004206120: main (threads/init.c:125)

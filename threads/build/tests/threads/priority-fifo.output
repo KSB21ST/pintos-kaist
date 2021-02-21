@@ -4,32 +4,18 @@ Kernel command line: -q run priority-fifo
 Pintos booting with: 
 	base_mem: 0x0 ~ 0x9fc00 (Usable: 639 kB)
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  209,510,400 loops/s.
 Boot complete.
 Executing 'priority-fifo':
 (priority-fifo) begin
 (priority-fifo) 16 threads will iterate 16 times in the same order each time.
 (priority-fifo) If the order varies then there is a bug.
-(priority-fifo) iteration: 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-(priority-fifo) iteration: 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-(priority-fifo) iteration: 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5
-(priority-fifo) iteration: 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5
-(priority-fifo) iteration: 12 13 12 13 12 13 12 13 12 13 12 13 12 13 12 13
-(priority-fifo) iteration: 12 13 12 13 12 13 12 13 12 13 12 13 12 13 12 13
-(priority-fifo) iteration: 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15
-(priority-fifo) iteration: 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15
-(priority-fifo) iteration: 10 11 10 11 10 11 10 11 10 11 10 11 10 11 10 11
-(priority-fifo) iteration: 10 11 10 11 10 11 10 11 10 11 10 11 10 11 10 11
-(priority-fifo) iteration: 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
-(priority-fifo) iteration: 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
-(priority-fifo) iteration: 8 9 8 9 8 9 8 9 8 9 8 9 8 9 8 9
-(priority-fifo) iteration: 8 9 8 9 8 9 8 9 8 9 8 9 8 9 8 9
-(priority-fifo) iteration: 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7
-(priority-fifo) iteration: 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7
-(priority-fifo) end
-Execution of 'priority-fifo' complete.
-Timer: 32 ticks
-Thread: 0 idle ticks, 32 kernel ticks, 0 user ticks
-Console: 1597 characters output
-Keyboard: 0 keys pressed
-Powering off...
+(priority-fifo) a is null 
+Kernel PANIC at ../../threads/thread.c:272 in thread_current(): assertion `t->status == THREAD_RUNNING' failed.
+Call stack: 0x800421321f 0x8004206ebe 0x8004209f1c 0x80042162e7 0x8004216405 0x8004210722 0x80042089df 0x8004208853 0x8004208c3a 0x800421357c 0x8004213fcb 0x800421437a 0x8004207364 0x8004207641 0x8004207615 0x800420703e 0x8004209a29 0x8004209eb3 0x800421638c 0x80042164a0 0x8004213e5f 0x800421437a 0x80042099cf 0x8004209eb3 0x8004218cdb 0x8004207187.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 24 ticks
+Thread: 0 idle ticks, 24 kernel ticks, 0 user ticks
+Console: 1

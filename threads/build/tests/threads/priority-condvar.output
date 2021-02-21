@@ -17,11 +17,13 @@ Executing 'priority-condvar':
 (priority-condvar) Thread priority 27 starting.
 (priority-condvar) Thread priority 26 starting.
 (priority-condvar) Thread priority 25 starting.
-(priority-condvar) Thread priority 24 starting.
-(priority-condvar) Signaling...
+(priority-condvar) (priority-condvar) Thread priority 24 starting.
+Signaling...
 (priority-condvar) Thread priority 23 woke up.
 (priority-condvar) Signaling...
+(priority-condvar) Thread priority 22 woke up.
 (priority-condvar) Signaling...
+(priority-condvar) Thread priority 21 woke up.
 (priority-condvar) Signaling...
 (priority-condvar) Thread priority 30 woke up.
 (priority-condvar) Signaling...
@@ -38,8 +40,8 @@ Executing 'priority-condvar':
 (priority-condvar) Thread priority 24 woke up.
 (priority-condvar) end
 Execution of 'priority-condvar' complete.
-Timer: 30 ticks
-Thread: 0 idle ticks, 30 kernel ticks, 0 user ticks
-Console: 1613 characters output
+Timer: 28 ticks
+Thread: 0 idle ticks, 28 kernel ticks, 0 user ticks
+Console: 1707 characters output
 Keyboard: 0 keys pressed
 Powering off...

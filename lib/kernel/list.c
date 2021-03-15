@@ -291,6 +291,17 @@ list_size (struct list *list) {
 	return cnt;
 }
 
+//edit
+int
+list_size_int (struct list *list){
+	struct list_elem *e;
+	int cnt = 0;
+
+	for (e = list_begin (list); e != list_end (list); e = list_next (e))
+		cnt++;
+	return cnt;
+}
+
 /* Returns true if LIST is empty, false otherwise. */
 bool
 list_empty (struct list *list) {

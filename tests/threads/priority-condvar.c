@@ -24,7 +24,8 @@ test_priority_condvar (void)
   lock_init (&lock);
   cond_init (&condition);
 
-  thread_set_priority (PRI_MIN);
+  thread_set_priority (PRI_MIN); //PRI_MIN in thread.h, value of 0
+
   for (i = 0; i < 10; i++) 
     {
       int priority = PRI_DEFAULT - (i + 7) % 10 - 1;
@@ -38,6 +39,7 @@ test_priority_condvar (void)
       lock_acquire (&lock);
       msg ("Signaling...");
       cond_signal (&condition, &lock);
+      // cond_broadcast (&condition, &lock);
       lock_release (&lock);
     }
 }

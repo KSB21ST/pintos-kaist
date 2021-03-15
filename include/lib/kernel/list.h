@@ -136,6 +136,9 @@ struct list_elem *list_back (struct list *);
 
 /* List properties. */
 size_t list_size (struct list *);
+//edit
+int list_size_int (struct list *);
+
 bool list_empty (struct list *);
 
 /* Miscellaneous. */

@@ -26,7 +26,7 @@ test_mlfqs_load_1 (void)
   msg ("spinning for up to 45 seconds, please wait...");
 
   start_time = timer_ticks ();
-  for (;;) 
+  for (;;)
     {
       load_avg = thread_get_load_avg ();
       ASSERT (load_avg >= 0);
@@ -51,8 +51,10 @@ test_mlfqs_load_1 (void)
   load_avg = thread_get_load_avg ();
   if (load_avg < 0)
     fail ("load average fell below 0");
-  if (load_avg > 50)
+  if (load_avg > 50){
+    printf("load average is %d \n", thread_get_load_avg () );
     fail ("load average stayed above 0.5 for more than 10 seconds");
+  }
   msg ("load average fell back below 0.5 (to %d.%02d)",
        load_avg / 100, load_avg % 100);
 

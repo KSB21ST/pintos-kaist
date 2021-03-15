@@ -44,9 +44,17 @@ test_priority_donate_multiple (void)
        PRI_DEFAULT + 2, thread_get_priority ());
 
   lock_release (&b);
+
   msg ("Thread b should have just finished.");
   msg ("Main thread should have priority %d.  Actual priority: %d.",
        PRI_DEFAULT + 1, thread_get_priority ());
+
+     struct list *lock_list_main = &thread_current()->locks_have;
+     struct lock *lock_main = list_entry(list_begin(lock_list_main), struct lock, elem);
+     struct semaphore *main_sema = &lock_main->semaphore;
+     struct list *threds_sema = &main_sema->waiters;
+     struct thread *waiting = list_entry(list_begin(threds_sema), struct thread, elem);
+    //  printf("\n main thread waiting for lock: thread %s \n", waiting->name);
 
   lock_release (&a);
   msg ("Thread a should have just finished.");
@@ -74,4 +82,6 @@ b_thread_func (void *lock_)
   msg ("Thread b acquired lock b.");
   lock_release (lock);
   msg ("Thread b finished.");
+
+  // printf("\n thread: %s, priority: %d \n", thread_current()->name, thread_get_priority());
 }

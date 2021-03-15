@@ -51,7 +51,13 @@ test_priority_donate_multiple2 (void)
   msg ("Main thread should have priority %d.  Actual priority: %d.",
        PRI_DEFAULT + 5, thread_get_priority ());
 
+      //  printf("\n main-1 thread %s priority: %d\n", thread_current()->name, thread_get_priority());
+
   lock_release (&a);
+
+      // printf("\n main-2 thread %s priority: %d\n", thread_current()->name, thread_get_priority());
+
+
   msg ("Main thread should have priority %d.  Actual priority: %d.",
        PRI_DEFAULT + 5, thread_get_priority ());
 

@@ -100,8 +100,12 @@ test_mlfqs_fair (int thread_cnt, int nice_min, int nice_step)
   msg ("Sleeping 40 seconds to let threads run, please wait...");
   timer_sleep (40 * TIMER_FREQ);
   
-  for (i = 0; i < thread_cnt; i++)
+  for (i = 0; i < thread_cnt; i++){
     msg ("Thread %d received %d ticks.", i, info[i].tick_count);
+    // printf("Thread %d nice: %d \n", i, info[i].nice);
+    //  printf("Thread %d start_time: %d \n", i, info[i].start_time);
+  }
+    
 }
 
 static void
